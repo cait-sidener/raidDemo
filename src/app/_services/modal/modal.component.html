@@ -1,0 +1,9 @@
+<div id="modal" class="modal" (click)="closeModal($event);">
+    {{logUpdate()}}
+    <div class="modal-dialog md:w-full md:pl-40 sm:w-full sm:pl-40">
+      <div class="modal-content shadow-xl border-none" [class.modal-full]="isFullPage" style="background-color: #f6f7f8">
+        <ng-content></ng-content> <!--Static Content; Close Button, Header, etc.-->
+        <div id="modal-content"></div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,41 @@
+<div>
+  <div>
+    <mat-form-field appearance='fill' class='text-white'>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <div class='py-6 px-2'>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-full">
+      <ng-container matColumnDef="agreementNumber">
+        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Agreement Number
+        </th>
+        <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.agreementNumber}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="countyName">
+        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>County Name</th>
+        <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.countyName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="railroadCompany">
+        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Railroad Company
+        </th>
+        <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.railroadCompany}}</td>
+      </ng-container>
+      <ng-container matColumnDef="lastAgreementExp">
+        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Last Agreement
+          Expiration Date
+        </th>
+        <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.lastAgreementExp}}</td>
+      </ng-container>
+      <ng-container matColumnDef="location">
+        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Location</th>
+        <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.location}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class='cursor-pointer' (click)="openDialog()">
+      </tr>
+    </table>
+  </div>
+  <div *ngIf='showModal'>
+    <app-agreement-info [countyId]='countySelected'></app-agreement-info>
+  </div>

@@ -1,0 +1,8 @@
+mat-sidenav {
+  background-color: #161B2E;
+  z-index: -100;
+}
+
+mat-toolbar {
+	background-color: #2C405A;
+}

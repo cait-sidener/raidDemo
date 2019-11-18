@@ -1,0 +1,145 @@
+<div class='flex justify-end'>
+  <button mat-dialog-close class='focus:outline-none'>
+    <mat-icon class='text-gray-900'>close</mat-icon>
+  </button>
+</div>
+<div class="p-8 rounded shadow bg-white">
+  <div class='flex justify-start border-b-2 pb-2 border-gray-400'>
+    <div class='flex items-center pr-4'>
+      <img class='w-20' src='../../../../assets/images/up_railroad.png' />
+    </div>
+    <div class="flex flex-col pt-2">
+      <p class='text-2xl flex items-end' *ngFor='let agreementInfo of agreementInfo$'> {{agreementInfo.railroadCompany}}
+      </p>
+      <p class='text-lg flex items-end' *ngFor='let agreementInfo of agreementInfo$'> {{agreementInfo.section}}</p>
+    </div>
+  </div>
+
+  <div class="flex flex-row mt-2" *ngFor='let agreementInfo of agreementInfo$'>
+    <div class='mr-4'>
+      <div class='flex justify-between'>
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end pr-3'>Agreement Number</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.agreementNumber}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>CD Number</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.cdNumber}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>Audit Number</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.auditNumber}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>LD Number</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.ldNumber}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>Location</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.location}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>Description</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <textarea matInput readonly type='text' value=' {{agreementInfo.description}} '></textarea>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>County</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.county}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>Route</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.route}} '>
+        </mat-form-field>
+      </div>
+      <div class='flex justify-between'>
+        <mat-label class='text-sm text-gray-600 flex items-end'>Plans Marked</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.plansMarked}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end justify-end'>Rent Amount</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.rentAmount}} '>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class='ml-4'>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Reason for Termination</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.reasonForTermination}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Highway Status</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.highwayStatus}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Last Agreement Date</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.lastAgreementDate}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end pr-3'>Last Agreement Expiration Date</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.lastAgreementExp}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Last Agreement Duration</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.lastAgreementDuration}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Lease Purpose</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <textarea matInput readonly type='text' value=' {{agreementInfo.leasePurpose}} '></textarea>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Spot/Route</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.spotRoute}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Created</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.createdBy}} {{agreementInfo.createdOn}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>Modified</mat-label>
+        <mat-form-field class='pr-4' appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.modifiedBy}} {{agreementInfo.modifiedOn}} '>
+        </mat-form-field>
+      </div>
+      <div class="flex justify-between">
+        <mat-label class='text-sm text-gray-600 flex items-end'>PK/FK</mat-label>
+        <mat-form-field appearance='standard'>
+          <input matInput readonly type='text' value=' {{agreementInfo.pk}} / {{agreementInfo.fk}} '>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

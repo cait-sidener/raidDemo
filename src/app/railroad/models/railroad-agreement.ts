@@ -1,4 +1,5 @@
 export interface RailroadAgreement {
+  id: number;
 	agreementNumber: string;
 	countyName: string;
 	railroadCompany: string;

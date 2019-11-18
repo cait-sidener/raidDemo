@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AgreementInfoComponent} from './railroad/agreement-info/agreement-info.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PeopleModule } from './people/people.module';
 import { RailroadModule } from './railroad/railroad.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule,
+import {
+         MatFormFieldModule,
+         MatIconModule,
+         MatInputModule,
          MatSidenavModule,
          MatToolbarModule } from '@angular/material';
 import { ModalComponent } from './_services/modal/modal.component';
@@ -16,19 +19,22 @@ import { ModalComponent } from './_services/modal/modal.component';
 	declarations: [
 		AppComponent,
 		ModalComponent,
+
 	],
 	imports: [
 		BrowserModule,
     HttpClientModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatSidenavModule,
     MatToolbarModule,
+    PeopleModule,
     RailroadModule,
 		AppRoutingModule,
-		BrowserAnimationsModule, //Contains '**' path, must come last; import order matters
+		BrowserAnimationsModule,
 	],
 	entryComponents: [
-    AgreementInfoComponent
 	],
 	providers: [],
 	bootstrap: [AppComponent]

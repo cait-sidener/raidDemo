@@ -1,10 +1,9 @@
 import { Component, ViewChild, OnInit, ViewEncapsulation } from '@angular/core';
-import { RailroadAgreementService } from '../services/railroad-agreement.service';
+import { RailroadAgreementService } from '../../services/railroad-agreement.service';
 import { MatSort, MatTableDataSource } from '@angular/material';
-import { RailroadAgreement } from '../models/railroad-agreement';
+import { RailroadAgreement } from '../../models/railroad-agreement';
 import { AgreementInfoComponent } from '../agreement-info/agreement-info.component';
-import { ModalService } from '../../_services/modal/services';
-
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-railroad-agreements',
@@ -16,21 +15,27 @@ import { ModalService } from '../../_services/modal/services';
 
 export class RailroadAgreementsComponent implements OnInit {
   closeResult: string;
-  countySelected: any;
-  showModal: boolean = false;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  isCollapsed : boolean = true;
 
 	dataSource: MatTableDataSource<RailroadAgreement>;
-	displayedColumns: string[] = ['agreementNumber', 'countyName', 'railroadCompany', 'lastAgreementExp', 'location'];
+  displayedColumns: string[] = ['agreementNumber', 'countyName', 'railroadCompany', 'lastAgreementExp', 'location'];
+  railroadSelected: any;
+  showModal: boolean = false;
 
-  constructor(private railroadAgreementService: RailroadAgreementService, private dialog: ModalService) {
+  constructor(private railroadAgreementService: RailroadAgreementService, private dialog: MatDialog) {
 
   }
 
-  onCountySelected() {
-    this.showModal = this.countySelected;
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
   }
+
+  onRailroadSelected() {
+    this.showModal = this.railroadSelected === 1;
+  }
+
 
   ngOnInit() {
 	  this.railroadAgreementService.getRailroadAgreements().subscribe(results => {
@@ -42,14 +47,12 @@ export class RailroadAgreementsComponent implements OnInit {
 	  })
   }
 
-
-
   applyFilter(filterValue: string) {
 	  this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   openDialog():void {
-    this.dialog.show(AgreementInfoComponent, true, undefined, { id: 1 });
+    this.dialog.open(AgreementInfoComponent)
   }
 
 

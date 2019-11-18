@@ -1,0 +1,49 @@
+<mat-card class='xl:mb-3 xl:w-2/5 xl:py-8 lg:full md:w-full sm:w-full rounded shadow bg-white'>
+  <mat-card-header class='flex'>
+    <mat-icon class='xl:text-6xl lg:text-5xl lg:mt-3 xl:mt-2'>people</mat-icon>
+    <p class="text-5xl pl-16">Consultants</p>
+  </mat-card-header>
+</mat-card>
+
+<div class='rounded consult-card bg-white shadow mt-4'>
+  <div class='px-6'>
+    <div class='pt-4'>
+      <mat-form-field appearance='legacy'>
+        <mat-label>
+          <mat-icon>search</mat-icon>
+        </mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+      </mat-form-field>
+    </div>
+
+    <div class='pb-6'>
+      <table mat-table [dataSource]="dataSource" matSort class="w-full mat-elevation-z8">
+        <ng-container matColumnDef="companyName">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Company Name
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let consultants">{{consultants.companyName}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="section">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Section</th>
+          <td mat-cell class='text-sm' *matCellDef="let consultants">{{consultants.section}}</td>
+        </ng-container>
+        <ng-container matColumnDef="active">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Active
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let consultants">{{consultants.active}}</td>
+        </ng-container>
+        <ng-container matColumnDef="website">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Website
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let consultants"><a class='hover:no-underline hover:text-black'
+              href={{consultants.website}} target='_blank'>{{consultants.website}}</a></td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+      <mat-paginator class='mat-elevation-z8' [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>

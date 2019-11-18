@@ -1,41 +1,41 @@
-<div>
   <div>
-    <mat-form-field appearance='fill' class='text-white'>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <mat-form-field appearance='legacy'>
+      <mat-label><mat-icon>search</mat-icon></mat-label>
+      <input class='text-white' matInput (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
   </div>
-  <div class='py-6 px-2'>
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-full">
+    <table mat-table [dataSource]="dataSource" matSort class="border-none w-full rounded px-2 pb-4">
       <ng-container matColumnDef="agreementNumber">
-        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Agreement Number
+        <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Agreement Number
         </th>
         <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.agreementNumber}}
         </td>
       </ng-container>
       <ng-container matColumnDef="countyName">
-        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>County Name</th>
+        <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>County Name</th>
         <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.countyName}}</td>
       </ng-container>
       <ng-container matColumnDef="railroadCompany">
-        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Railroad Company
+        <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Railroad Company
         </th>
         <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.railroadCompany}}</td>
       </ng-container>
       <ng-container matColumnDef="lastAgreementExp">
-        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Last Agreement
+        <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Last Agreement
           Expiration Date
         </th>
         <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.lastAgreementExp}}</td>
       </ng-container>
       <ng-container matColumnDef="location">
-        <th mat-header-cell class='text-white font-normal text-sm' *matHeaderCellDef mat-sort-header>Location</th>
+        <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Location</th>
         <td mat-cell class='text-sm' *matCellDef="let railroadAgreement">{{railroadAgreement.location}}</td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class='cursor-pointer' (click)="openDialog()">
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class='cursor-pointer' (click)='toggleCollapse()'>
       </tr>
     </table>
-  </div>
-  <div *ngIf='showModal'>
-    <app-agreement-info [countyId]='countySelected'></app-agreement-info>
-  </div>
+
+    <div *ngIf='!isCollapsed'>
+      <app-agreement-info [railroadId]='railroadSelcted'></app-agreement-info>
+    </div>
+

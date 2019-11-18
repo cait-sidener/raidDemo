@@ -1,113 +1,114 @@
-<mat-toolbar class='z-50 flex justify-start items-center h-16 shadow'>
-  <p class='text-white text-5xl pl-8 pt-2'>RAID</p>
+<mat-toolbar class='z-50 flex justify-start items-center shadow'>
+  <p class='text-white text-5xl font-normal pl-8'>RAID</p>
 </mat-toolbar>
 
 <mat-sidenav-container class='h-screen'>
-  <mat-sidenav class='pt-4 pl-8 w-64 shadow' #sidenav mode='side' (opened)='events.push("open!")' (closed)='events.push("close!")'
+  <mat-sidenav class='pt-4 pl-8 shadow' #sidenav mode='side'
     [(opened)]='opened'>
-    <div class='text-white text-xs'>
-      [Seach Bar]
+    <div>
+      <mat-form-field appearance='outline'>
+        <mat-label><mat-icon>search</mat-icon></mat-label>
+        <input matInput>
+      </mat-form-field>
     </div>
 
     <!-- <li><a [routerLink]="['/']" [routerLinkActive]="['active-link']"
         [routerLinkActiveOptions]="{exact:true}">Home</a></li> -->
-    <hr class='bg-white w-11/12'>
+    <hr class='bg-black w-11/12 mb-3'>
     <div class='pl-3 text-xs'>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' routerLink="['/railroad']">Schedule</a>
+        <a class='hover:no-underline hover:text-blue-900' routerLink="['/railroad']">Schedule</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Tracts</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Engineering</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Appraisal</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Acquisition</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Property Management</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Relocation</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Certificate of Title</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Joint Use</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">RID</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Inventory</a>
       </div>
 
       <div>
-        <a class='text-white hover:no-underline hover:text-white' [routerLink]="['/railroad']"
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/railroad']"
           [routerLinkActive]="['active-link']">Railroad Agreement</a>
       </div>
     </div>
-    <hr class='bg-white w-11/12'>
-    <div class='text-white text-xs pb-2'>
+    <hr class='bg-black w-11/12 my-3'>
+    <div class='text-xs pb-2'>
       Links
     </div>
     <div class='pl-3 text-xs'>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' target='_blank'
-          href='#' mat-menu-item>Counties</a>
+        <a class='hover:no-underline hover:text-blue-900' target='_blank'
+          href='https://www.naco.org/Counties' mat-menu-item>Counties</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' target='_blank'
-          href='#' mat-menu-item>ROAS</a>
+        <a class='hover:no-underline hover:text-blue-900' target='_blank'
+          href='http://roas.ksdot.org/BentleyOAS/login.aspx' mat-menu-item>ROAS</a>
       </div>
       <div>
-        <a class='text-white hover:no-underline hover:text-white' target='_blank'
-          href='#' mat-menu-item>KDOT Reports Portal</a>
+        <a class='hover:no-underline hover:text-blue-900' target='_blank'
+          href='http://reports/BIPortal/Contents.aspx?categoryId=39360' mat-menu-item>KDOT Reports Portal</a>
       </div>
     </div>
-    <hr class='bg-white w-11/12'>
-    <div class='text-white text-xs pb-2'>
+    <hr class='bg-black w-11/12 my-3'>
+    <div class='text-xs pb-2'>
       People
     </div>
     <div class='pl-3 text-xs'>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' target='_blank'
-          href='#' mat-menu-item>Consultants</a>
+        <a class='hover:no-underline hover:text-blue-900'[routerLink]="['/consultants']"
+        [routerLinkActive]="['active-link']" mat-menu-item>Consultants</a>
       </div>
       <div class='pb-2'>
-        <a class='text-white hover:no-underline hover:text-white' target='_blank'
-          href='#' mat-menu-item>Right-of-Way Staff</a>
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/staff']"
+        [routerLinkActive]="['active-link']" mat-menu-item>Right-of-Way Staff</a>
       </div>
       <div>
-        <a class='text-white hover:no-underline hover:text-white' target='_blank'
-          href='#' mat-menu-item>KDOT Design Squads</a>
+        <a class='hover:no-underline hover:text-blue-900' [routerLink]="['/squad']"
+        [routerLinkActive]="['active-link']" mat-menu-item>KDOT Design Squads</a>
       </div>
     </div>
-
-    <!-- <button mat-button (click)='sidenav.toggle()'>sidenav.toggle()</button> -->
   </mat-sidenav>
   <mat-sidenav-content class="xl:px-48 pt-10 lg:px-48 pt-10 md:px-2 pt-10 sm:px-2 pt-10"
     [ngStyle]='{ "margin-left.px": contentMargin }'>
     <router-outlet></router-outlet>
-    <app-modal>
+    <!-- <app-modal>
         <div class='flex justify-end px-4 pt-2'>
           <button><mat-icon class='modal-close'>close</mat-icon></button>
         </div>
-      </app-modal>
+      </app-modal> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

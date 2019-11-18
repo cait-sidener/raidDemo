@@ -1,0 +1,69 @@
+<mat-card class='xl:mb-3 xl:w-1/2 xl:py-8 lg:full md:w-full sm:w-full rounded shadow bg-white'>
+  <mat-card-header class='flex'>
+    <mat-icon class='xl:text-6xl lg:text-5xl lg:mt-3 xl:mt-2'>people</mat-icon>
+    <p class="text-5xl pl-16">KDOT Design Squads</p>
+  </mat-card-header>
+</mat-card>
+
+<div class='rounded-t squad-card shadow bg-white mt-4'>
+  <div class='px-6'>
+    <div class='pt-4'>
+      <mat-form-field appearance='legacy'>
+        <mat-label>
+          <mat-icon>search</mat-icon>
+        </mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+      </mat-form-field>
+    </div>
+
+    <div class='pb-6'>
+      <table mat-table [dataSource]="dataSource" matSort class="w-full mat-elevation-z8">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Position
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.position}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="initials">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Initials</th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.initials}}</td>
+        </ng-container>
+        <ng-container matColumnDef="first">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>First Name
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.first}}</td>
+        </ng-container>
+        <ng-container matColumnDef="last">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Last Name
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.last}}</td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Email
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.email}}</td>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Phone Number
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.phone}}</td>
+        </ng-container>
+        <ng-container matColumnDef="beginDate">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Begin Date
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.beginDate}}</td>
+        </ng-container>
+        <ng-container matColumnDef="endDate">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>End Date
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let squad">{{squad.endDate}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+      <mat-paginator class='mat-elevation-z8' [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>

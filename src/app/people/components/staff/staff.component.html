@@ -1,0 +1,81 @@
+<mat-card class='xl:mb-3 xl:w-1/2 xl:py-8 lg:full md:w-full sm:w-full rounded shadow bg-white'>
+  <mat-card-header class='flex'>
+    <mat-icon class='xl:text-6xl lg:text-5xl lg:mt-3 xl:mt-2'>people</mat-icon>
+    <p class="text-5xl pl-16">Right-of-Way Staff</p>
+  </mat-card-header>
+</mat-card>
+
+<div class='rounded staff-card shadow bg-white mt-4'>
+  <div class='px-6'>
+    <div class='pt-4'>
+      <mat-form-field appearance='legacy'>
+        <mat-label>
+          <mat-icon>search</mat-icon>
+        </mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+      </mat-form-field>
+    </div>
+
+    <div class='pb-6'>
+      <table mat-table [dataSource]="dataSource" matSort class="w-full mat-elevation-z8">
+        <ng-container matColumnDef="section">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Section
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.section}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="first">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>First Name
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.first}}</td>
+        </ng-container>
+        <ng-container matColumnDef="nickname">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Nickname
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.nickname}}</td>
+        </ng-container>
+        <ng-container matColumnDef="middle">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Middle Name
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.middle}}</td>
+        </ng-container>
+        <ng-container matColumnDef="last">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Last Name
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.last}}</td>
+        </ng-container>
+        <ng-container matColumnDef="initials">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Initials</th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.initials}}</td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Email
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.email}}</td>
+        </ng-container>
+        <ng-container matColumnDef="workPhone">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Work Phone Number
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.workPhone}}</td>
+        </ng-container>
+        <ng-container matColumnDef="active">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Active
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff">{{staff.active}}</td>
+        </ng-container>
+        <ng-container matColumnDef="star">
+          <th mat-header-cell class='font-normal text-sm' *matHeaderCellDef mat-sort-header>Actions
+          </th>
+          <td mat-cell class='text-sm' *matCellDef="let staff" (click)='openDialog()'>
+            <mat-icon class='cursor-pointer'>more_vert</mat-icon>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+      <mat-paginator class='mat-elevation-z8' [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
